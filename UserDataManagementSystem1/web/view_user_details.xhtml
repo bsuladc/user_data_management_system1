@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"      
+      xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>User Data Management System\User Details View</title>
+    </h:head>
+    <h:body>
+        <ezcomp:user_data_entry_composite 
+            header="User Details View"
+            firstName="#{viewUserDetailsManager.userDataEntry.firstName}"
+            firstNameReadOnly="true"
+            firstNameDisabled="true"
+            lastName="#{viewUserDetailsManager.userDataEntry.lastName}"
+            lastNameReadOnly="true"
+            lastNameDisabled="true"
+            address="#{viewUserDetailsManager.userDataEntry.address}"
+            addressReadOnly="true"
+            addressDisabled="true"
+            country="#{viewUserDetailsManager.userDataEntry.country}"
+            countryReadOnly="true"
+            countryDisabled="true"
+            language="#{viewUserDetailsManager.userDataEntry.language}"
+            languageReadOnly="true"
+            languageDisabled="true"
+            dob="#{viewUserDetailsManager.userDataEntry.dateOfBirth}"
+            dobReadOnly="true"
+            dobDisabled="true"
+            education="#{viewUserDetailsManager.userDataEntry.education}"
+            educationReadOnly="true"
+            educationDisabled="true"
+            profession="#{viewUserDetailsManager.userDataEntry.profession}"
+            professionReadOnly="true"
+            professionDisabled="true"
+            showSaveButton="false"/>
+    </h:body>
+</html>
+

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="header"/>
+        <cc:attribute name="firstName"/>
+        <cc:attribute name="firstNameReadOnly"/>
+        <cc:attribute name="firstNameDisabled"/>
+        <cc:attribute name="lastName"/>
+        <cc:attribute name="lastNameReadOnly"/>
+        <cc:attribute name="lastNameDisabled"/>  
+        <cc:attribute name="address"/>
+        <cc:attribute name="addressReadOnly"/>
+        <cc:attribute name="addressDisabled"/>
+        <cc:attribute name="country"/>
+        <cc:attribute name="countryReadOnly"/>
+        <cc:attribute name="countryDisabled"/>        
+        <cc:attribute name="language"/>
+        <cc:attribute name="languageReadOnly"/>
+        <cc:attribute name="languageDisabled"/>
+        <cc:attribute name="dob"/>
+        <cc:attribute name="dobReadOnly"/>
+        <cc:attribute name="dobDisabled"/>        
+        <cc:attribute name="education"/>
+        <cc:attribute name="educationReadOnly"/>
+        <cc:attribute name="educationDisabled"/>
+        <cc:attribute name="profession"/>
+        <cc:attribute name="professionReadOnly"/>
+        <cc:attribute name="professionDisabled"/>
+        <cc:attribute name="showSaveButton"/>
+        <cc:attribute name="actionToCall" method-signature="java.lang.String action()"/>        
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <div style="padding-top: 100px">
+            <h:form id="user_details_form">
+                <table style="margin: auto">
+                    <tr>
+                        <td style="padding-bottom: 50px">
+                            <span style="text-decoration: underline">#{cc.attrs.header}</span>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>
+                                        <h:inputText id="first_name_input" required="true" requiredMessage="First name is required" value="#{cc.attrs.firstName}" readonly="#{cc.attrs.firstNameReadOnly}" disabled="#{cc.attrs.firstNameDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="first_name_input"/>
+                                    </td>
+                                    <td>&nbsp;&nbsp;DOB</td>
+                                    <td>
+                                        <h:inputText id="dob_input" required="true" requiredMessage="DOB is required" value="#{cc.attrs.dob}" readonly="#{cc.attrs.dobReadOnly}" disabled="#{cc.attrs.dobDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="dob_input"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>
+                                        <h:inputText id="last_name_input" required="true" requiredMessage="Last name is required" value="#{cc.attrs.lastName}" readonly="#{cc.attrs.lastNameReadOnly}" disabled="#{cc.attrs.lastNameDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="last_name_input"/>
+                                    </td>
+                                    <td>&nbsp;&nbsp;Education</td>
+                                    <td>
+                                        <h:inputText id="education_input" required="true" requiredMessage="Education is required" value="#{cc.attrs.education}" readonly="#{cc.attrs.educationReadOnly}" disabled="#{cc.attrs.educationDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="education_input"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Address</td>
+                                    <td>
+                                        <h:inputText id="address_input" required="true" requiredMessage="Address is required" value="#{cc.attrs.address}" readonly="#{cc.attrs.addressReadOnly}" disabled="#{cc.attrs.addressDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="address_input"/>
+                                    </td>
+                                    <td>&nbsp;&nbsp;Profession</td>
+                                    <td>
+                                        <h:inputText id="profession_input" required="true" requiredMessage="Profession is required" value="#{cc.attrs.profession}" readonly="#{cc.attrs.professionReadOnly}" disabled="#{cc.attrs.professionDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="profession_input"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Country</td>
+                                    <td>
+                                        <h:inputText id="country_input" required="true" requiredMessage="Country is required" value="#{cc.attrs.country}" readonly="#{cc.attrs.countryReadOnly}" disabled="#{cc.attrs.countryDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="country_input"/>
+                                    </td>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr>
+                                    <td>Language</td>
+                                    <td>
+                                        <h:inputText id="language_input" required="true" requiredMessage="Language is required" value="#{cc.attrs.language}" readonly="#{cc.attrs.languageReadOnly}" disabled="#{cc.attrs.languageDisabled}"/>
+                                        <br/><h:message style="color: red; font-weight: bold" for="language_input"/>
+                                    </td>
+                                    <td colspan="2" style="text-align: center"><h:commandButton rendered="#{cc.attrs.showSaveButton}" value="Save" action="#{cc.attrs.actionToCall}"/> &nbsp;&nbsp; <h:commandButton value="Return" action="user_overview"/></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>    
+            </h:form>            
+        </div>                
+    </cc:implementation>
+</html>

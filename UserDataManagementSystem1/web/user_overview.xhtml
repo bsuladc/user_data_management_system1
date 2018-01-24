@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User Data Management System\User Overview</title>
+        <h:outputStylesheet library="theme" name="css/user_table.css"/>
+        <script type="text/javascript">
+            var userSelected = false;
+            
+            function setUserSelected() {
+                userSelected = true;
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <div style="padding-top: 100px">
+            <h:form id="user_overview_form">
+                <table style="margin: auto">
+                    <tr>
+                        <td style="padding-bottom: 50px">
+                            <span style="text-decoration: underline">User Overview</span>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td>
+                            <h:dataTable value="#{userOverviewManager.userList}" var="u"
+                                         styleClass="user_table"
+                                         headerClass="user_table_header"
+                                         rowClasses="user_table_odd_row,user_table_even_row"
+                                         >
+                                <h:column>
+                                    <!-- column header -->
+                                    <f:facet name="header"></f:facet>
+                                    <!-- row record -->
+                                    <input type="radio" name="userId" value="#{u.userId}" onclick="setUserSelected();"/>                                    
+                                </h:column>                                
+                                <h:column>
+                                    <!-- column header -->
+                                    <f:facet name="header">Name</f:facet>
+                                    <!-- row record -->
+                                    <h:commandLink action="#{viewUserDetailsManager.viewUser()}" value="#{u.name}">
+                                        <f:param name="userId" value="#{u.userId}"/>
+                                    </h:commandLink>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Address</f:facet>
+                                        #{u.address}
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">DOB</f:facet>
+                                        #{u.dateOfBirth}
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Country</f:facet>
+                                        #{u.country}
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Language</f:facet>
+                                        #{u.language}
+                                </h:column>                                
+                            </h:dataTable>    
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding-top: 50px">                            
+                            <h:commandButton value="Add User" action="add_user_details.xhtml"/>&nbsp;&nbsp;
+                            <h:commandButton id="modify_user_command_button" value="Modify User" action="modify_user_details" onclick="return userSelected;"/>&nbsp;&nbsp;
+                            <h:commandButton value="View User" id="view_user_command_button" action="#{viewUserDetailsManager.viewUser()}" onclick="return userSelected;"/>&nbsp;&nbsp;
+                            <h:commandButton id="remove_user_command_button" value="Remove User" action="#{userOverviewManager.removeUser()}" onclick="return userSelected;"/>
+                        </td>
+                    </tr>                     
+                </table>    
+            </h:form>
+        </div>
+    </h:body>
+</html>

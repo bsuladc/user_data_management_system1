@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 23, 2018, 12:50:50 PM
+    Author     : bryan ceniza
+*/
+
+.user_table{
+	border-color: white; border-width: 2px; border-style: solid
+}
+
+.user_table_header{
+	text-align:center;
+        background:none repeat scroll 0 0 #0099ff;
+	border-bottom:1px solid #BBBBBB;
+	padding:16px;
+}
+
+.user_table_odd_row{
+	text-align:center;
+	background:none repeat scroll 0 0 #FFFFFFF;
+	border-top:1px solid #BBBBBB;
+}
+
+.user_table_even_row{
+	text-align:center;
+	background:none repeat scroll 0 0 #F9F9F9;
+	border-top:1px solid #BBBBBB;
+}
