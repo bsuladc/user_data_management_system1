@@ -1,2 +1,7 @@
 /UserDataManagementSystem1/nbproject/private/
 /UserDataManagementSystem1/build/
+/test/.nb-gradle/
+/UserDataManagementSystem1/dist/
+/test/build.gradle
+/test/settings.gradle
+/test/src/main/java/com/ibm/MainClass.java
