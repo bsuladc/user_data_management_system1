@@ -7,9 +7,10 @@ package com.ibm.udms;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Named;
 import javax.faces.context.FacesContext;
-import javax.faces.flow.FlowScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 
 /**
@@ -17,7 +18,7 @@ import javax.inject.Inject;
  * @author bryan ceniza
  */
 @Named(value = "modifyUserDetailsManager")
-@FlowScoped(value = "modify_user_details")
+@ViewScoped
 public class ModifyUserDetailsManager implements Serializable{
     
     @Inject
@@ -34,7 +35,13 @@ public class ModifyUserDetailsManager implements Serializable{
     @PostConstruct
     public void init() {
         String userId = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("userId");
-        userDataEntry = userOverviewManager.getUser(userId);        
+        userDataEntry = userOverviewManager.getUser(userId);      
+        System.out.println("constrt");
+    }
+    
+    @PreDestroy
+    public void whenDestroyed() {
+        System.out.println("destroyed");
     }
     
     public User getUserDataEntry() {
